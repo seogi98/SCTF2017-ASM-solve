@@ -1,0 +1,1 @@
+startAdd = "./captcha"
