@@ -7,9 +7,10 @@ file_names = list(range(0, 13))
 train = []
 train_labels = []
 for file_name in file_names:
-    path = startAdd+'/training_data/' + str(file_name) + '/'
+    path = startAdd+'/training_data/'+str(file_name)+'/'
     file_count = len(next(os.walk(path))[2])
-    for i in range(1, file_count + 1):
+    for i in range(1, file_count):
+        tmp  = path + str(i) + '.png'
         img = cv2.imread(path + str(i) + '.png')
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         train.append(gray)

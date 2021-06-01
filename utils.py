@@ -28,7 +28,7 @@ def extract_chars(image):
     for contour in contours:
         # 추출된 이미지 크기가 50 이상인 경우만 실제 문자 데이터인 것으로 파악
         area = cv2.contourArea(contour)
-        if area > 50:
+        if area > 30:
             x, y, width, height = cv2.boundingRect(contour)
             roi = image_gray[y:y + height, x:x + width]
             chars.append((x, roi))
@@ -40,3 +40,22 @@ import numpy as np
 def resize20(image):
     resized = cv2.resize(image, (20, 20))
     return resized.reshape(-1, 400).astype(np.float32)
+
+# 입력 string 계산해 주는 함수
+def caculateStr(culstr = str()):
+    tok = ['+','-','*']
+    ipos = 0
+    for c in tok:
+        ipos = culstr.find(c)
+        if ipos != -1:
+            break
+    num1 = int(culstr[:ipos])
+    num2 = int(culstr[ipos+1:])
+    op = culstr[ipos]
+    if op == '+':
+        return num1 + num2
+    if op == '-':
+        return num1 - num2
+    if op == '*':
+        return num1 * num2
+    
