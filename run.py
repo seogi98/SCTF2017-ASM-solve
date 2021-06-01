@@ -26,7 +26,7 @@ def get_result(file_name):
         matched = check(utils.resize20(char[1]), train, train_labels)
         if matched < 10:
             result_string += str(int(matched))
-        continue
+            continue
         if matched == 10:
             matched = '+'
         elif matched == 11:
@@ -47,11 +47,14 @@ url = '/start'
 
 with requests.Session() as s:
     answer = ''
-    for i in range(100):
+    for i in range(31):
         start_time = time.time()
         params = {'ans':answer}
         response = s.post(host+url,params)
         print("Server Return" + response.text)
+        if response.text == "-1":
+            print("Error")
+            break
         # 처음에 받아왔을때
         if i == 0:
             returned = response.text
@@ -71,6 +74,8 @@ with requests.Session() as s:
         answer_string = get_result(target_image)
         print('String: ' + answer_string)
         answer_string = utils.caculateStr(answer_string)
-        answer = str(eval(answer_string))
+        print(answer_string)
+        answer = str(answer_string)
         print('Answer: ' + answer)
         print("--- %s seconds ---" % (time.time() - start_time))
+print("성공")

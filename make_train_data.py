@@ -10,7 +10,7 @@ startAdd = inti.startAdd
 
 path = startAdd+'/images/'
 file_count = len(next(os.walk(path))[2])
-for filename in range(13,file_count-1):
+for filename in range(0,file_count-1):
     tmp  = startAdd+"/images/"+str(filename)+".png"
     image = cv2.imread(tmp)
     chars = utils.extract_chars(image)
