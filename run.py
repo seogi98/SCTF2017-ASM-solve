@@ -47,8 +47,8 @@ url = '/start'
 
 with requests.Session() as s:
     answer = ''
-    for i in range(31):
-        start_time = time.time()
+    start_time = time.time()
+    for i in range(100):
         params = {'ans':answer}
         response = s.post(host+url,params)
         print("Server Return" + response.text)

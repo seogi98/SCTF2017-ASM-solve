@@ -15,7 +15,7 @@ import os
 
 
 image_folder = "./captcha/images/"
-url = "http://192.168.0.97:10000/"
+url = "http://192.168.1.82:10000/"
 driver = webdriver.Chrome(r"C:\Users\seogi\Downloads\chromedriver_win32\chromedriver.exe");
 wait = WebDriverWait(driver, 100)
 #크롬 실행
@@ -24,7 +24,7 @@ ImageXpath = "/html/body/div[1]/div/div/div/div[1]/img["
 # src 담아서 저장한다.
 imageSrc = []
 
-for i in range(1,10):
+for i in range(1,5):
     nextImageXpath = ImageXpath + str(i) + "]"
     # 이미지 보일때 까지 대기
     wait.until(EC.element_to_be_clickable((By.XPATH,nextImageXpath)))
