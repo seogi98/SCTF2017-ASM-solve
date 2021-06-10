@@ -41,8 +41,7 @@ def get_result(file_name):
 import requests
 import time
 import shutil
-import inti
-host = "http://192.168.0.97:10000/"
+host = inti.host
 url = '/start'
 
 with requests.Session() as s:
