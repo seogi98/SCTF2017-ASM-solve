@@ -1,2 +1,2 @@
 startAdd = "./captcha"
-host = "http://192.168.1.82:10000/"
+host = "http://192.168.0.97:10000/"
